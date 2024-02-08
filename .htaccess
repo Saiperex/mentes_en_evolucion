@@ -8,7 +8,3 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 # Redirigir internamente a la URL con la extensión .php
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
-
-# Redirigir externamente a la URL sin la extensión .php (no mostrar la extensión en la barra de direcciones)
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
-RewriteRule ^ /%1 [R=301,L,NE]

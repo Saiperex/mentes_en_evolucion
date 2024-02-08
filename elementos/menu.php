@@ -16,7 +16,7 @@
         <li><a href="Capacitaciones">Capacitaciones</a></li>
         <li><a href="Planes">Planes</a></li>
         <li><a href="blog">blog</a></li>
-        <li class="login"><a href="panel/">Iniciar Sesión</a></li>
+        <li class="login"><a href="panel">Iniciar Sesión</a></li>
     </ul>
 </nav>
 <script>

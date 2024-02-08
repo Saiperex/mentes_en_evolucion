@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['id']) || empty($_SESSION['id']))
 {
-    
+    header('Location: login');
     exit; // Asegúrate de salir del script después de redirigir
 }
 else
@@ -13,13 +13,13 @@ else
         {
             switch($_SESSION['rol']) 
             {
-                case 1:
+                case 0:
                     header('Location: administrador/');
                     break;
-                case 2:
+                case 1:
                     header('Location: agente/');
                     break;
-                case 3:
+                case 2:
                     header('Location: alumno');
                     break;
                 default:
