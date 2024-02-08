@@ -1,0 +1,10 @@
+:root 
+{
+    --color_azul_oscuro: #00171f;
+    --color_celeste:#00a8e8;
+    --color-blanco: #fefefe;
+    --fuente_menu: 'Raleway', sans-serif;
+    --fuente_titulo: 'Montserrat', sans-serif;
+    --fuente_subtitulo: 'Roboto', sans-serif;
+    --fuente_parrafo: 'Open Sans', sans-serif;
+}
