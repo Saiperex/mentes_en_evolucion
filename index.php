@@ -1,3 +1,32 @@
+<?php
+include ('php/conexion.php');
+// Inicializar el array $redes
+$redes = array(
+    'facebook' => '',
+    'twitter' => '',
+    'instagram' => '',
+    'whatsapp' => '',
+    'telefono' => '',
+    'correo' => ''
+);
+
+// Consultar los datos de las redes sociales
+$resultado = $conn->query("SELECT * FROM redes");
+if ($resultado->num_rows > 0) {
+    // Si hay registros, obtener los datos y almacenarlos en el array $redes
+    $redes = $resultado->fetch_assoc();
+} else {
+    // Si no hay registros, establecer valores predeterminados
+    $redes = array(
+        'facebook' => 'facebook',
+        'twitter' => 'twitter',
+        'instagram' => 'instagram',
+        'whatsapp' => 'whatsapp',
+        'telefono' => 'telefono',
+        'correo' => 'correo'
+    );
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,45 +177,29 @@
                     <p>Elige el plan que mas te guste y se amolde a tus necesidades</p>
                 </div>
                 <div class="planes_mid contenedor_planes">
-                    <div class="plan">
-                        <h2>Plan de Prueba</h2>
-                        <p>resumen del plan</p>
-                        <h3>precio</h3>
-                        <ol>
-                            <li><i class="fa-solid fa-check"></i>detalle 1</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 2</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 3</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 4</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 5</li>
-                        </ol>
-                        <a href="">Obtener Plan</a>
-                    </div>
-                    <div class="plan">
-                        <h2>Plan de Prueba</h2>
-                        <p>resumen del plan</p>
-                        <h3>precio</h3>
-                        <ol>
-                            <li><i class="fa-solid fa-check"></i>detalle 1</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 2</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 3</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 4</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 5</li>
-                        </ol>
-                        <a href="">Obtener Plan</a>
-                    </div>
-                    <div class="plan">
-                        <h2>Plan de Prueba</h2>
-                        <p>resumen del plan</p>
-                        <h3>precio</h3>
-                        <ol>
-                            <li><i class="fa-solid fa-check"></i>detalle 1</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 2</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 3</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 4</li>
-                            <li><i class="fa-solid fa-check"></i>detalle 5</li>
-                        </ol>
-                        <a href="">Obtener Plan</a>
-                    </div>
+                    <?php
+                        $registros=$conn->query("SELECT * FROM planes");
+                        if($registros->num_rows>0)
+                        {
+                            while($plan=$registros->fetch_assoc())
+                            {
+                                echo '<div class="plan">';
+                                    echo '<h2>'.$plan['titulo'].'</h2>';
+                                    echo '<p>'.$plan['subtitulo'].'</p>';
+                                    echo '<h3>'.$plan['precio'].'</h3>';
+                                    echo '<ol>';
+                                        echo '<li><i class="fa-solid fa-check"></i>'.$plan['d1'].'</li>';
+                                        echo '<li><i class="fa-solid fa-check"></i>'.$plan['d2'].'</li>';
+                                        echo '<li><i class="fa-solid fa-check"></i>'.$plan['d3'].'</li>';
+                                        echo '<li><i class="fa-solid fa-check"></i>'.$plan['d4'].'</li>';
+                                        echo '<li><i class="fa-solid fa-check"></i>'.$plan['d5'].'</li>';
+                                    echo '</ol>';
+                                    echo '<a href="https://api.whatsapp.com/send?phone=+54'.$redes['whatsapp'].'&text=Estoy interesado en adquirir el plan: '.$plan['titulo'].'">Obtener Plan</a>';
+                                echo '</div>';
+                            }
+                        }
+
+                    ?>
                 </div>
             </div>
         </section>
@@ -211,9 +224,9 @@
                 <div class="contacto_der">
                 <!-- Enlaces a redes sociales -->
                 <ul class="redes_sociales">
-                    <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li class="facebook"><a href="https://www.facebook.com/<?php echo $redes['facebook'] ?>"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="twitter"><a href="https://www.x.com/<?php echo $redes['twitter'] ?>"><i class="fab fa-twitter"></i></a></li>
+                    <li class="instagram"><a href="https://www.instagram.com/<?php echo $redes['instagram'] ?>"><i class="fab fa-instagram"></i></a></li>
                     <!-- Agrega más enlaces según sea necesario -->
                 </ul>
                 </div>
@@ -238,10 +251,10 @@
             </div>
             <div class="pie_sector">
                 <h3>Contacto</h3>
-                <a class="enlace" href="">Telefono</a>
-                <a class="enlace" href="">@MentesEnEvolucion</a>
-                <a class="enlace" href="">@MentesEnEvolucion</a>
-                <a class="enlace" href="">contacto@mentesenevolucion.com.ar</a>
+                <a class="enlace" href="tel:<?php echo $redes['telefono'] ?>"><?php echo $redes['telefono'] ?></a>
+                <a class="enlace" href="https://www.facebook.com/<?php echo $redes['facebook'] ?>">@MentesEnEvolucion</a>
+                <a class="enlace" href="https://www.instagram.com/<?php echo $redes['instagram'] ?>">@MentesEnEvolucion</a>
+                <a class="enlace" href="mailto:<?php echo $redes['correo'] ?>"><?php echo $redes['correo'] ?></a>
             </div>
         </div>
     </footer>

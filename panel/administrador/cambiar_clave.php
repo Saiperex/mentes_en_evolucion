@@ -11,6 +11,21 @@ if ($_SESSION['rol'] != 0)
         exit;
     }
 include ('../../php/conexion.php');
+
+if(isset($_POST['cambiar']))
+{
+    $id = $_POST['id'];
+    $contraseña = $_POST['contraseña'];
+    $contrasenaHasheada = password_hash($contraseña, PASSWORD_DEFAULT);
+    $stmt = $conn->prepare("UPDATE usuarios SET password=? WHERE id=?");
+    $stmt->bind_param("si", $contrasenaHasheada, $_SESSION['id']);
+    $stmt->execute();
+    header('Location: datos');
+}
+if(isset($_POST['cancelar']))
+{
+    header('Location: datos');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +47,13 @@ include ('../../php/conexion.php');
     <main class="principal">
         <div class="contenido_padre">
             <div class="contenido_hijo">
-                
+                <form action="cambiar_clave.php" method="post" class="pregunta p2">
+                    <h2>Deseas cambiar tu clave?</h2>
+                    <input type="hidden" name="id" value="<?php echo $_SESSION['id'] ?>">
+                    <input type="text" name="contraseña" id="contraseña">
+                    <button type="submit" name="cambiar">Cambiar</button>
+                    <button type="submit" name="cancelar">Cancelar</button>
+                </form>
             </div>
         </div>
     </main>
