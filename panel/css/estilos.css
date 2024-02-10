@@ -464,3 +464,12 @@
 {
     display: none;
 }
+/*ENTRADAS BLOG*/
+.entrada textarea
+{
+    resize: none;
+}
+.entrada input[type='file']
+{ 
+    display: none;
+}

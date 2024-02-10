@@ -24,7 +24,7 @@
         </ul>
         <ul>
             <h2>Blog</h2>
-            <li><a href=""><i class="fas fa-file-alt"></i> Mis Blogs</a></li>
+            <li><a href="entradas"><i class="fas fa-file-alt"></i> Mis Blogs</a></li>
             <li><a href="video_inicio"><i class="fas fa-video"></i> Video Inicio</a></li>
         </ul>
     </div>
