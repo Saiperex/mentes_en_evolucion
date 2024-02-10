@@ -26,6 +26,8 @@ if ($resultado->num_rows > 0) {
         'correo' => 'correo'
     );
 }
+$resultado_video = $conn->query("SELECT * FROM video_inicio");
+$video = $resultado_video->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +93,7 @@ if ($resultado->num_rows > 0) {
         <section class="seccion nosotros">
             <div class="seccion_centrado nosotros_centrado">
                 <div class="nosotros_izq">
-                    <video src="img/recursos/intro.mp4" controls></video>
+                    <video src="<?php echo $video['video_url'] ?>" controls></video>
                 </div>
                 <div class="nosotros_der">
                     <h2>Forjando un Futuro de Conocimiento"</h2>
