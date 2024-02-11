@@ -100,7 +100,7 @@ if (isset($_POST['modificar_entrada']))
                         <label for="archivos">Archivos</label>
                         <input type="file" id="archivos" name="archivos[]" accept="image/*,video/*" multiple><br><br>
                         <button type="submit" name="modificar_entrada">Guardar Cambios</button>
-                        <a href="eliminar_entrada.php">Eliminar</a>
+                        <a href="eliminar_entrada.php?id=<?php echo $entrada['id'] ?>">Eliminar</a>
                     </form>
                 </div>
                 <div class="contenido_planes ver_planes">
