@@ -460,6 +460,10 @@
 {
     width: 100%;
 }
+.p3 img
+{
+    width: 100%;
+}
 .p3 input[type='file']
 {
     display: none;
@@ -472,4 +476,24 @@
 .entrada input[type='file']
 { 
     display: none;
+}
+.archivo
+{
+    width: 100%;
+    margin: 20px 0;
+    border: solid 1px var(--color-blanco);
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-blanco);
+}
+.archivo img,.archivo video
+{
+    width: 100%;
+}
+.archivo a
+{
+    color: var(--color_celeste);
+    padding: 20px 0;
 }
