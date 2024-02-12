@@ -1,3 +1,16 @@
+<?php
+session_start();
+$texto="";
+
+if(!isset($_SESSION['id']) || empty($_SESSION['id']))
+{
+  $texto="Iniciar Sesión";
+}
+else
+{
+  $texto="Panel";
+}
+?>
 <div class="slide_button">
     <div class="line"></div>
     <div class="line"></div>
@@ -16,7 +29,7 @@
         <li><a href="Capacitaciones">Capacitaciones</a></li>
         <li><a href="Planes">Planes</a></li>
         <li><a href="blog">blog</a></li>
-        <li class="login"><a href="panel">Iniciar Sesión</a></li>
+        <li class="login"><a href="panel"><?php echo $texto?></a></li>
     </ul>
 </nav>
 <script>

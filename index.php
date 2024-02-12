@@ -32,6 +32,8 @@ $video = $resultado_video->fetch_assoc();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--ICON-->
+    <link rel="shortcut icon" href="img/recursos/logo2.png" type="image/x-icon">
     <!--ICONS-->
     <script src="https://kit.fontawesome.com/c8bf7962f3.js" crossorigin="anonymous"></script>
     <!--FONTS-->
