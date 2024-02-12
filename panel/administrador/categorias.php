@@ -59,7 +59,7 @@ if(isset($_POST['cargar_categoria']))
     <main class="principal">
         <div class="contenido_padre">
             <div class="contenido_hijo">
-            <div class="contenido_planes cargar_plan">
+                <div class="contenido_planes cargar_plan">
                     <form action="categorias.php" method="post" class="entrada" enctype="multipart/form-data">
                         <h2>Nueva Categoria</h2>
                         <label for="titulo">Titulo</label>
