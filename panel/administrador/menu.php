@@ -18,8 +18,8 @@
             <h2>Educacion</h2>
             <li><a href=""><i class="fas fa-book-open"></i> Cursos</a></li>
             <li><a href=""><i class="fas fa-chalkboard-teacher"></i> Capacitaciones</a></li>
-            <li><a href=""><i class="fas fa-folder"></i> Categorias</a></li>
-            <li><a href=""><i class="fas fa-folder-open"></i> Subcategorias</a></li>
+            <li><a href="categorias"><i class="fas fa-folder"></i> Categorias</a></li>
+            <li><a href="subcategorias"><i class="fas fa-folder-open"></i> Subcategorias</a></li>
             <li><a href="planes"><i class="fas fa-comments"></i> Planes</a></li>
         </ul>
         <ul>

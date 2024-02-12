@@ -497,3 +497,22 @@
     color: var(--color_celeste);
     padding: 20px 0;
 }
+/*SUBCATEGORIAS*/
+.entrada select
+{
+    margin: 20px 0;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    border-bottom: solid 1px var(--color_celeste);
+    color: var(--color-blanco);
+    font-family: var(--fuente_menu);
+}
+.entrada select option
+{
+    background-color: var(--color_azul_oscuro);
+}
+.entrada select option:hover
+{
+    background-color: var(--color_celeste);
+}
