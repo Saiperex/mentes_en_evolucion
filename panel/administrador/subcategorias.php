@@ -40,6 +40,7 @@ if(isset($_POST['cargar_subcategoria']))
     $conn->close();
 }
 $registros=$conn->query("SELECT * FROM categorias");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +62,7 @@ $registros=$conn->query("SELECT * FROM categorias");
     <main class="principal">
         <div class="contenido_padre">
             <div class="contenido_hijo">
-            <div class="contenido_planes cargar_plan">
+                <div class="contenido_planes cargar_plan">
                     <form action="subcategorias.php" method="post" class="entrada" enctype="multipart/form-data">
                         <h2>Nueva Subcategorias</h2>
                         <label for="categoria">Categoria</label>
