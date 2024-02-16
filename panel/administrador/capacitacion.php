@@ -16,7 +16,26 @@ $registro=$conn->query("SELECT * FROM capacitaciones WHERE id=$id");
 $capacitacion=$registro->fetch_assoc();
 
 $registros_categorias=$conn->query("SELECT * FROM categorias");
+if(isset($_GET['modificar_capa']))
+{
+    // Obtener los datos del formulario
+    $tipo = $_GET['tipo'];
+    $titulo = $_GET['titulo'];
+    $subtitulo = $_GET['subtitulo'];
+    $descripcion = $_GET['descripcion'];
+    $categoria = $_GET['categoria'];
+    $id = $_GET['id'];
 
+    // Actualizar el plan en la base de datos
+    $sql = "UPDATE capacitaciones SET tipo = ?, titulo = ?, subtitulo = ?, descripcion = ?, id_categoria = ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssii",$tipo, $titulo, $subtitulo, $descripcion, $categoria, $id);
+    $stmt->execute();
+
+    // Redirigir a la página de planes después de la modificación
+    header('Location: cargar_curso');
+    exit;
+}
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +59,7 @@ $registros_categorias=$conn->query("SELECT * FROM categorias");
         <div class="contenido_padre">
             <div class="contenido_hijo">
                 <div class="contenido_planes cargar_plan">
-                    <form action="cargar_curso.php" class="entrada" method="post">
+                    <form action="capacitacion.php" class="entrada" method="get">
                         <h2>Agregar curso o capa</h2>
                         <label for="pregunta">Quieres modificar el tipo?</label>
                         <label class="curso" for="curso">Curso</label>
@@ -70,7 +89,8 @@ $registros_categorias=$conn->query("SELECT * FROM categorias");
                                 }
                             ?>
                         </select>
-                        <button type="submit" class="cargar_capa" name="cargar_capa">Modificar Capa</button>
+                        <input type="hidden" name="id" value="<?php echo $capacitacion['id']?>">
+                        <button type="submit" class="cargar_capa" name="modificar_capa">Modificar Capa</button>
                         <a href="eliminar_capa.php?id=<?php echo $capacitacion['id']?>">Eliminar</a>
                     </form>
                 </div>
@@ -121,4 +141,32 @@ $registros_categorias=$conn->query("SELECT * FROM categorias");
     </main>
 </body>
 <script src="../js/slider.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() 
+    {
+        const curso = document.querySelector('.curso');
+        const capacitacion = document.querySelector('.capacitacion');
+        const input_valor = document.querySelector('.tipo');
+        
+        curso.addEventListener("click", function() {
+            input_valor.value = "Curso";
+            sombra(); // Llama a la función sombra después de establecer el valor
+        });
+        
+        capacitacion.addEventListener("click", function() {
+            input_valor.value = "Capacitacion";
+            sombra(); // Llama a la función sombra después de establecer el valor
+        });
+        
+        function sombra() {
+            if (input_valor.value === "Curso") {
+                curso.style.boxShadow = "0 0 20px #00e8c1";
+                capacitacion.style.boxShadow = "0 0 0px transparent";
+            } else if (input_valor.value === "Capacitacion") {
+                capacitacion.style.boxShadow = "0 0 20px #00e8c1";
+                curso.style.boxShadow = "0 0 0px transparent";
+            }
+        }
+    });
+</script>
 </html>
