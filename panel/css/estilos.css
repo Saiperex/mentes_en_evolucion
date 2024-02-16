@@ -516,3 +516,44 @@
 {
     background-color: var(--color_celeste);
 }
+/*ADD CURSOS*/
+.curso,.capacitacion
+{
+    margin: 20px 0;
+    padding: 10px;
+    background-color: var(--color_celeste);
+    width: 12rem;
+}
+#descripcion
+{
+    resize: none;
+
+}
+/*SUBCATEGORIAS CURSOS*/
+.contenedor_subcategorias
+{
+    width: 100%;
+    height: 50%;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.contenedor_subcategorias_capa
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+}
+.contenedor_subcategorias a
+{
+    color: var(--color-blanco);
+    font-family: var(--fuente_menu);
+    border: solid 1px red;
+    display: block;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
