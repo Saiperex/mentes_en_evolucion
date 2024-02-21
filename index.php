@@ -132,13 +132,36 @@ $video = $resultado_video->fetch_assoc();
                     <p>Descubre una amplia selección de cursos diseñados para inspirar, educar y transformar. Desde tecnología hasta negocios, tenemos algo para cada interes.</p>
                 </div>
                 <div class="destacados_mid destacado2">
-                    <a href="" class="card_curso"></a>
-                    <a href="" class="card_curso"></a>
-                    <a href="" class="card_curso"></a>
-                    <a href="" class="card_curso"></a>
-                    <a href="" class="card_curso"></a>
-                    <a href="" class="card_curso"></a>
-                    <a href="" class="card_curso ver_cursos">
+                    <?php
+                        $registro_cursos = $conn->query("SELECT * FROM capacitaciones ORDER BY id DESC LIMIT 6");
+                        if($registro_cursos->num_rows>0)
+                        {
+                            while($curso=$registro_cursos->fetch_assoc())
+                            {
+                                echo '<a href="curso.php?id='.$curso['id'].'" class="card_curso">';
+                                    echo '<h2>'.$curso['titulo'].'</h2>';
+                                    $registro_categoria=$conn->query("SELECT * FROM categorias WHERE id={$curso['id_categoria']}");
+                                    if($registro_categoria->num_rows>0)
+                                    {
+                                        $categoria=$registro_categoria->fetch_assoc();
+                                         echo '<h3 style="border:solid 1px #fff; box-shadow: 0 0 10px '.$categoria['color'].', inset 0 0 10px '.$categoria['color'].'">'.$categoria['categoria'].'</h3>';
+                                    }
+                                    $registros_subcategorias=$conn->query("SELECT * FROM subcategoria_capa WHERE id_capa={$curso['id'] }");
+                                    if($registros_subcategorias->num_rows>0)
+                                    {
+                                        while($subcategoria=$registros_subcategorias->fetch_assoc())
+                                        {
+                                            $sub_reg=$conn->query("SELECT * FROM subcategorias WHERE id={$subcategoria['id_subcategoria']} ");
+                                            $sub=$sub_reg->fetch_assoc();
+                                            echo '<h4 style="border:solid 1px #fff; box-shadow:0 0 10px '.$sub['color'].',inset 0 0 10px '.$sub['color'].'">'.$sub['subcategoria'].'</h4>';
+                                        }
+                                    }
+                                    echo '<p>'.$curso['descripcion'].'</p>';
+                                echo '</a>';
+                            }
+                        }
+                    ?>
+                    <a href="cursos.php" class="card_curso ver_cursos">
                         <h2>Ver +</h2>
                     </a><!--Ver mas cursos-->
                 </div>

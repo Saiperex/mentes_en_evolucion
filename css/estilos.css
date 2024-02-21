@@ -762,3 +762,41 @@ header
     color: var(--color-blanco);
     font-family: var(--fuente_menu);
 }
+/*CURSOS*/
+.card_curso
+{
+    overflow: auto;
+}
+.card_curso h2
+{
+    color: var(--color-blanco);
+    font-family: var(--fuente_titulo);
+}
+.card_curso h3
+{
+    color: var(--color-blanco);
+    font-family: var(--fuente_subtitulo);
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 10px 0;
+    font-size: 12px;
+}
+.card_curso h4
+{
+    color: var(--color-blanco);
+    font-family: var(--fuente_menu);
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 5px 0;
+    font-size: 10px;
+}
+.card_curso p
+{
+    color: var(--color-blanco);
+    font-family: var(--fuente_parrafo);
+    margin: 5px 0;
+}
