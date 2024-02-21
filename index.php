@@ -161,7 +161,7 @@ $video = $resultado_video->fetch_assoc();
                             }
                         }
                     ?>
-                    <a href="cursos.php" class="card_curso ver_cursos">
+                    <a href="cursos_capa" class="card_curso ver_cursos">
                         <h2>Ver +</h2>
                     </a><!--Ver mas cursos-->
                 </div>
