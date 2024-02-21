@@ -10,6 +10,8 @@ else
 {
   $texto="Panel";
 }
+$url_actual = $_SERVER['REQUEST_URI'];
+$enlace_planes = dirname($url_actual) . '#planes';
 ?>
 <div class="slide_button">
     <div class="line"></div>
@@ -25,9 +27,9 @@ else
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
-        <li><a href="Cursos">Cursos</a></li>
-        <li><a href="Capacitaciones">Capacitaciones</a></li>
-        <li><a href="Planes">Planes</a></li>
+        <li><a href="cursos">Cursos</a></li>
+        <li><a href="capacitaciones">Capacitaciones</a></li>
+        <li><a href="<?php echo $enlace_planes?>">Planes</a></li>
         <li><a href="blog">blog</a></li>
         <li class="login"><a href="panel"><?php echo $texto?></a></li>
     </ul>

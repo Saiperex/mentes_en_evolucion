@@ -196,7 +196,7 @@ $video = $resultado_video->fetch_assoc();
             </div>
             <div class="path1"></div>
         </section>
-        <section class="seccion planes">
+        <section id="planes" class="seccion planes">
             <div class="seccion_centrado testimonio_centrado">
                 <div class="planes_mid">
                     <h3>Planes</h3>
