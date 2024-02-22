@@ -800,3 +800,13 @@ header
     font-family: var(--fuente_parrafo);
     margin: 5px 0;
 }
+/*BLOG*/
+.card_curso legend
+{
+    font-family: var(--fuente_titulo);
+    color: var(--color-blanco);
+    padding: 10px ;
+    background-color: var(--color_celeste);
+    display: inline-block;
+    margin: 20px 0;
+}
