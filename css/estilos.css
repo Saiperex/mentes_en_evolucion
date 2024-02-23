@@ -810,3 +810,27 @@ header
     display: inline-block;
     margin: 20px 0;
 }
+/*ENTRADA*/
+.destacado2 img
+{
+    width: 80%;
+    margin: 20px 0;
+    min-width: 300px;
+}
+.destacado2 video
+{
+    width: 80%;
+    margin: 20px 0;
+    min-width: 300px;
+}
+.destacado2 a
+{
+    color: var(--color_celeste);
+    margin: 20px 0;
+}
+.entrada
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
