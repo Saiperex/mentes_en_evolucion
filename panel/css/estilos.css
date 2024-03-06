@@ -557,3 +557,28 @@
     border-radius: 12px;
     margin: 20px 0;
 }
+/*CLASES*/
+.contenido_clase
+{
+    color: var(--color-blanco);
+}
+.contenido_clase h2
+{
+    font-family: var(--fuente_titulo);
+    margin: 20px 0;
+}
+.archivos_clase
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.archivos_clase video
+{
+    width: 80%;
+}
+.contenido_planes p
+{
+    color: var(--color-blanco);
+    font-family: var(--fuente_parrafo);
+}
