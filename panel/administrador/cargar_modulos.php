@@ -75,7 +75,7 @@ if(isset($_POST['cargar_modulo']))
                                 }
                                 else
                                 {
-                                    echo '<option value="-1">Sin categorias</option>';
+                                    echo '<option value="-1">Sin Capacitaciones</option>';
                                 }
                             ?>
                         </select>
