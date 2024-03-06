@@ -10,7 +10,7 @@
         <ul>
             <h2>Usuarios</h2>
             <li><a href="../administrador"><i class="fas fa-user"></i> Mis Usuarios</a></li>
-            <li><a href=""><i class="fas fa-graduation-cap"></i> Asignar Cursos</a></li>
+            <li><a href="asignar_curso"><i class="fas fa-graduation-cap"></i> Asignar Cursos</a></li>
             <li><a href=""><i class="fas fa-envelope"></i> Enviar Mensajes</a></li>
             <li><a href=""><i class="fas fa-comments"></i> Comentarios</a></li>
         </ul>

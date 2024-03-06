@@ -5,7 +5,7 @@ if (!isset($_SESSION['id']) || empty($_SESSION['id']))
     header('Location: ../login');
     exit;
 }
-if ($_SESSION['rol'] != 1) 
+if ($_SESSION['rol'] != 0) 
     {
         header('Location: ../error');
         exit;
