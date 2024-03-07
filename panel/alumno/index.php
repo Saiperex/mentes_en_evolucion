@@ -50,7 +50,7 @@ include ('../../php/conexion.php');
                                         $registro_categoria=$conn->query("SELECT * FROM categorias WHERE id={$datos_curso['id_categoria']}");
                                         $categoria=$registro_categoria->fetch_assoc();
                                         echo '<h5 style="color:'.$categoria['color'].'">Categoria: '.$categoria['categoria'].'</h5>';
-                                        echo '<a href="estudiar.php?id1='.$curso['id'].'&id2='.$id.'">Ingresar</a>';
+                                        echo '<a href="estudiar.php?id1='.$datos_curso['id'].'">Ingresar</a>';
                                     echo '</div>';
                                 }
                             }
