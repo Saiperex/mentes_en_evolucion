@@ -11,32 +11,6 @@ if ($_SESSION['rol'] != 2)
         exit;
     }
 include ('../../php/conexion.php');
-if(isset($_POST['cargar_usuario']))
-{
-    $usuario=$_POST['usuario'];
-    $contraseña_sin_hash=$_POST['contraseña'];
-    $rol=$_POST['rol'];
-    // Generar el hash de la contraseña
-    $hash_contraseña = password_hash($contraseña_sin_hash, PASSWORD_DEFAULT);
-    // Preparar la consulta para insertar el nuevo plan
-    $sql = "INSERT INTO usuarios (usuario, password, rol) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    // Enlazar los parámetros
-    $stmt->bind_param("ssi", $usuario, $hash_contraseña, $rol);
-    // Ejecutar la consulta
-    if ($stmt->execute()) {
-        // Si se inserta correctamente, redirigir a la página de planes
-        header('Location: ../agente');
-        exit;
-    } else {
-        // Si hay un error en la inserción, mostrar un mensaje de error o manejarlo de acuerdo a tus necesidades
-        header('Location: ../error');
-    }
-
-    // Cerrar la declaración y la conexión
-    $stmt->close();
-    $conn->close();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +32,37 @@ if(isset($_POST['cargar_usuario']))
     <main class="principal">
         <div class="contenido_padre">
             <div class="contenido_hijo">
-            
+                <div class="contenido_cursos">
+                    <div class="mis_cursos">
+                        <?php
+                            $id=$_SESSION['id'];
+                            $registro_asignados=$conn->query("SELECT * FROM cursos_asignados WHERE id_alumno=$id");
+                            if($registro_asignados->num_rows>0)
+                            {
+					            while($curso=$registro_asignados->fetch_assoc())
+                                {
+                                    $registro_curso=$conn->query("SELECT * FROM capacitaciones WHERE id={$curso['id_curso']}");
+                                    $datos_curso=$registro_curso->fetch_assoc();
+                                    echo '<div style="border:solid 3px #fff" class="categoria">';
+                                        echo '<h2>'.$datos_curso['titulo'].'</h2>';
+                                        echo '<h4>'.$datos_curso['subtitulo'].'</h4>';
+                                        echo '<p>'.$datos_curso['descripcion'].'</p>';
+                                        $registro_categoria=$conn->query("SELECT * FROM categorias WHERE id={$datos_curso['id_categoria']}");
+                                        $categoria=$registro_categoria->fetch_assoc();
+                                        echo '<h5 style="color:'.$categoria['color'].'">Categoria: '.$categoria['categoria'].'</h5>';
+                                        echo '<a href="estudiar.php?id1='.$curso['id'].'&id2='.$id.'">Ingresar</a>';
+                                    echo '</div>';
+                                }
+                            }
+                            else
+                            {
+                                echo '<div style="border:solid 3px #fff" class="categoria">';
+                                    echo 'No posee cursos';
+                                echo '</div>';
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

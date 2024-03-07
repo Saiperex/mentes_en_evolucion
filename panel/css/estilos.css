@@ -582,3 +582,50 @@
     color: var(--color-blanco);
     font-family: var(--fuente_parrafo);
 }
+/*Contenido Cursos*/
+.contenido_cursos
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.mis_cursos
+{
+    width: 50%;
+    min-width: 250px;
+    color: var(--color-blanco);
+}
+.categoria
+{
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.categoria h2
+{
+    font-family: var(--fuente_titulo);
+}
+.categoria h4
+{
+    font-family: var(--fuente_subtitulo);
+}
+.categoria h5
+{
+    font-family: var(--fuente_menu);
+}
+.categoria a
+{
+    font-family: var(--fuente_menu);
+    padding: 10px;
+    margin: 10px 0;
+    color: var(--color-blanco);
+    background-color: var(--color_celeste);
+    width: 40%;
+    min-width: 200px;
+}
+.categoria p
+{
+    font-family: var(--fuente_parrafo);
+}
